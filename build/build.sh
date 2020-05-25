@@ -9,7 +9,7 @@ tar -cv -f "unsigned.ltd" @"$MTREE"
 if [ -n "$PRIVATE_KEY" ]; then
     openssl dgst -sha256 -sign "$PRIVATE_KEY" -out "signature" unsigned.ltd
     tar -cv -f "signed.ltd" @unsigned.ltd signature
-    gzip signed.ltd
+    gzip signed.ltd -c > "signed.ltdz"
 else
-    gzip unsigned.ltd
+    gzip unsigned.ltd -c > "unsigned.ltdz"
 fi

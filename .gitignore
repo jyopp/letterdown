@@ -6,6 +6,6 @@
 # Ignore build products and output archives
 signature
 *.ltd
-*.gz
+*.ltdz
 
 cache

@@ -62,18 +62,20 @@ signature
 Finally, the file should typically be compressed for distribution:
 
 ```bash
-$> gzip signed.ltd
+$> gzip signed.ltd -c > signed.ltdz
 ```
+
+The default gzip behavior of appending `.gz` must not be used, because these archives are intended to be opened and consumed directly without decompression. Appending `.gz` would cause most operating systems to inflate the file to a directory instead of opening it as a verifiable, signed archive.
 
 ### Verifying the signature
 
 Digital signatures are embedded in the file for ease of distribution and for easy verification in client programs. This adds a few steps to command-line verification, but it's still quite straightforward:
 
 ```bash
-# Create project-inner.ltd by cloning signed.ltd.gz, skipping the signature file
-$> tar -c --exclude signature -f project-inner.ltd @signed.ltd.gz
+# Create project-inner.ltd by cloning signed.ltdz, skipping the signature file
+$> tar -c --exclude signature -f project-inner.ltd @signed.ltdz
 # Extract just the signature file from the archive
-$> tar -x -f signed.ltd.gz signature
+$> tar -x -f signed.ltdz signature
 $> openssl dgst -sha256 -verify /../pubkey.pem -signature signature project-inner.ltd
 Verified OK
 ```

@@ -1,6 +1,6 @@
 # Letterdown
 
-Letterdown is a file format for distributing markdown content with media in a portable, simple, and accessible way. Letterdown files (`*.ltd` / `*.ltd.gz`) may be digitally signed and may contain metadata about their context in the publisher's overall work. They may also include other resources like sample projects or audio.
+Letterdown is a file format for distributing markdown content with media in a portable, simple, and accessible way. Letterdown files (`*.ltd` / `*.ltdz`) may be digitally signed and may contain metadata about their context in the publisher's overall work. They may also include other resources like sample projects or audio.
 
 ## Format overview
 
@@ -13,7 +13,7 @@ At its most basic, a Letterdown file is simply:
 - A content archive in TAR format containing one or more markdown files and associated resources
 - An optional `signature` of the archive's sha256 digest, appended after signing
   - Plus an optional file containing the corresponding public key or certificate
-- Distributed with the file extension `.ltd` for uncompressed archives, or `.ltd.gz` for compressed archives
+- Distributed with the file extension `.ltd` for uncompressed archives, or `.ltdz` for compressed archives
 
 ### What problems does this solve?
 
