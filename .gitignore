@@ -1,0 +1,11 @@
+
+# Ignore certificates and keys
+# Placing them in the project is discouraged anyway
+*.pem
+
+# Ignore build products and output archives
+signature
+*.ltd
+*.gz
+
+cache

@@ -1,0 +1,14 @@
+{
+    "title": "Letterdown Specification",
+    "url": "letterdown.com/spec/v1.ltd",
+    "references": [
+        {
+            "title": "CommonMark.org",
+            "url": "https://commonmark.org"
+        },
+        {
+            "title": "pax Extended Headers",
+            "url": "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html#tag_20_92_13_03"
+        }
+    ]
+}
