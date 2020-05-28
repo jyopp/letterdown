@@ -11,6 +11,6 @@ v0.9, May 2020
 
 *The following supplemental files were used to build this document:*
 
-- [build/tree.mtree](tree.mtree)
-- [build/build.sh](build.sh)
+- [build/tree.mtree](build/tree.mtree)
+- [build/build.sh](build/build.sh)
 

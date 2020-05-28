@@ -13,7 +13,7 @@ build           type=dir mode=0755
 ..
 
 media           type=dir mode=0755
-    Logo.png
+    logo.png
 ..
 
 ..
