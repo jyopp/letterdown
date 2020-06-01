@@ -1,15 +1,19 @@
 
-# USAGE: ./build.sh [mtree] [path/to/private.key]
-# eg, ./build.sh tree.mtree ~/.private/letterdown.key
+# USAGE: ./build.sh output [files.txt] [path/to/private.key]
+# eg, ./build.sh "Archive.ltd" file-list.txt ~/.private/letterdown.key
 
-MTREE=${1:-tree.mtree}
-PRIVATE_KEY=${2}
+FILENAME=${1}
+FILES_LIST=${2}
+PRIVATE_KEY=${3}
 
-tar -cv -f "unsigned.ltd" @"$MTREE"
 if [ -n "$PRIVATE_KEY" ]; then
-    openssl dgst -sha256 -sign "$PRIVATE_KEY" -out "signature" unsigned.ltd
-    tar -cv -f "signed.ltd" @unsigned.ltd signature
-    gzip signed.ltd -c > "signed.ltdz"
+    # Create an UNCOMPRESSED temporary archive to sign
+    tar -cv -f "temp.ltd" --format=ustar -T "$FILES_LIST"
+    openssl dgst -sha256 -sign "$PRIVATE_KEY" -out "signature" temp.ltd
+    # Copy the public key
+    openssl rsa -in "$PRIVATE_KEY" -pubout -out pubkey.pem
+    # Copy everything in order to the final output archive.
+    tar -cvz -f "$FILENAME" @temp.ltd signature pubkey.pem
 else
-    gzip unsigned.ltd -c > "unsigned.ltdz"
+    tar -cvz -f "$FILENAME" --format=ustar -T "$FILES_LIST"
 fi

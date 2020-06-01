@@ -1,16 +1,13 @@
-![Letterdown Logo](media/logo.png)
-# Letterdown Spec
+# ![Letterdown Logo](media/logo@2x.png) Letterdown
 
-v0.9, May 2020
+v0.91, May 2020
 
-- [Spec](spec.md)
-- [Building .ltd Files](building.md)
+- [Intro](intro.md)
+- [File Format Specification](format.md)
 - [FAQ](faq.md)
-
-
 
 *The following supplemental files were used to build this document:*
 
-- [build/tree.mtree](build/tree.mtree)
+- [build/file-list.txt](build/file-list.txt)
 - [build/build.sh](build/build.sh)
 
