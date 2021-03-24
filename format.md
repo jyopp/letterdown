@@ -161,10 +161,10 @@ The following image shows the archive structure for a signed document with `cont
 
 ### File Lists
 
-On most platforms, `tar` supports creating an archive using a plain text listing of input files:
+For more control over the archive, for repeatability, and to prevent hidden or unintended files from being distributed, archives should be created from an explicit list of files when possible. On most platforms, `tar` supports creating an archive using a plain text listing of input files:
 
 ```bash
-# -n (--no-recursion) prevents hidden files (.DS_Store, etc.) from being added
+# -n (--no-recursion) prevents hidden files (.DS_Store, etc.) from being added to folders
 $> tar -cvz -f "project.ltd" --format=ustar -n -T files-list.txt
 ```
 
