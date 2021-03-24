@@ -73,7 +73,7 @@ Written from Anywheresville, CA
 A simple `context.json` may specify only the document's title and url. This example cites an academic paper and includes its cryptographic hash, so users may detect if the document matches the version referred to here:
 
 ```json
-{ "title": "My Awesome Memo"
+{ "title": "My Awesome Memo",
   "url": "letterdown.com/35A529EF-344B-4CB0-A7B6-AC496B343EA0",
   "references": [
     { "title":"R Hendricks and E Bachman, et al. \"Adversarial Compression for Peer-to-Peer Networks\"",
